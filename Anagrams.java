@@ -14,6 +14,31 @@ public class Anagrams{
     try{
       BufferedReader br = new BufferedReader(new FileReader("joyce1922_ulysses-1.text"));
       String Line;
+
+      while ((line = br.readLine()) != null) {
+        String[] words = line.split("\\s+");
+
+        for (String w : words) {
+          w = w.replaceAll("[.,;,:_!-]");
+          w = w.toLowerCase();
+
+          if (w.length() == 0) {
+            continue;
+          }
+          String key = signature(w);
+
+          if (!D.containsKey(key)) {
+            ArrayList < String > list = new ArrayList<>();
+            list.add(w);
+            D.put(key, list);
+          }
+          else {
+            D.get(key).add(w);
+          }
+          
+        }
+      }
+      br.close();
     }
   }
   
