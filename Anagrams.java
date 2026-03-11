@@ -39,6 +39,16 @@ public class Anagrams{
         }
       }
       br.close();
+      for (String key : D.keySet()) {
+        ArrayList < String > list = D.get(key);
+
+        if (list.size() >= 2) {
+          System.out.println("key + ":" + list);
+        }
+      }
+    }
+    catch(IOException e) {
+      System.out.println("Error reading file.");
     }
   }
   
